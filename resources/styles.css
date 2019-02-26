@@ -1,0 +1,296 @@
+.background {
+  viewport-fill: black;
+}
+
+/*
+    Screen 1 defintions
+*/
+
+#sc1Hours {
+  font-size: 164
+    ;
+  font-family: System-Bold;
+  text-length: 8;
+  text-anchor: middle;
+  x: 25%+19;
+  y: 70%-28;
+  opacity: 1;
+}
+
+#sc1Mins {
+  font-size: 84;
+  font-family: System-Bold;
+  text-length: 8;
+  text-anchor: end;
+  x: 100%-3;
+  y: 50%-22;
+  opacity: 1;
+}
+
+#sc1Secs {
+  font-size: 55;
+  font-family: System-Bold;
+  text-length: 2;
+  text-anchor: end;
+  x: 100%-5;
+  y: 70%-28;
+  opacity: 1;
+  fill: fb-dark-gray;
+}
+
+#sc1Label {
+  font-size: 24;
+  font-family: System-Bold;
+  text-length: 2;
+  text-anchor: end;
+  x: 70%+12;
+  y: 70%-28;
+  opacity: 1;
+}
+
+#sc1Date {
+  font-size: 35;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 10%+10;
+  opacity: 1;
+  fill: greenyellow;
+}
+
+#sc1Steps {
+  font-size: 45;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: end;
+  x: 100%-7;
+  y: 90%+13;
+  opacity: 1;
+  fill: fb-cyan;
+}
+
+.sc1ActivityIcon {
+  height: 36;
+  width: 36;
+  opacity: 1;
+  fill: fb-cyan;
+}
+
+
+/*
+    Screen TZ defintions
+*/
+
+#scTZHours {
+  font-size: 164
+    ;
+  font-family: System-Bold;
+  text-length: 8;
+  text-anchor: middle;
+  x: 25%+19;
+  y: 70%-28;
+  opacity: 1;
+}
+
+#scTZMins {
+  font-size: 84;
+  font-family: System-Bold;
+  text-length: 8;
+  text-anchor: end;
+  x: 100%-3;
+  y: 50%-22;
+  opacity: 1;
+}
+
+#scTZSecs {
+  font-size: 55;
+  font-family: System-Bold;
+  text-length: 2;
+  text-anchor: end;
+  x: 100%-5;
+  y: 70%-28;
+  opacity: 1;
+  fill: fb-dark-gray;
+}
+
+#scTZLabel {
+  font-size: 24;
+  font-family: System-Bold;
+  text-length: 2;
+  text-anchor: end;
+  x: 70%+12;
+  y: 70%-28;
+  opacity: 1;
+}
+
+#scTZname {
+  font-size: 35;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 10%+10;
+  opacity: 1;
+  fill: fb-peach;
+}
+
+#scTZSteps {
+  font-size: 45;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: end;
+  x: 100%-7;
+  y: 90%+13;
+  opacity: 1;
+  fill: fb-cyan;
+}
+
+
+/*
+    Screen 2 defintions
+*/
+
+#sc2Batt {
+  font-size: 35;
+  font-family: System-Regular;
+  text-length: 12;
+  text-anchor: end;
+  x: 95%+7;
+  y: 10%+5;
+  opacity: 1;
+  fill: fb-orange;
+}
+
+#sc2Day {
+  font-size: 60;
+  font-family: System-Bold;
+  text-length: 40;
+  text-anchor: start;
+  x: 5;
+  y: 30%;
+  opacity: 1;
+  fill: greenyellow;
+}
+
+#sc2Date {
+  font-size: 80;
+  font-family: System-Bold;
+  text-length: 40;
+  text-anchor: start;
+  x: 5;
+  y: 60%-10;
+  opacity: 1;
+  fill: greenyellow;
+}
+
+#sc2Steps {
+  font-size: 70;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: end;
+  x: 100%-7;
+  y: 90%+3;
+  opacity: 1;
+  fill: fb-cyan;
+}
+
+
+/*
+    Screen TZ2 defintions
+*/
+
+#scTZ2name {
+  font-size: 60;
+  font-family: System-Bold;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 20%;
+  opacity: 1;
+  fill: fb-peach;
+}
+
+#scTZ2offset {
+  font-size: 80;
+  font-family: System-Bold;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 50%-10;
+  opacity: 1;
+  fill: fb-peach;
+}
+
+#scTZ2DST {
+  font-size: 35;
+  font-family: System-Bold;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 60%;
+  opacity: 1;
+  fill: fb-peach;
+}
+
+#scTZ2Steps {
+  font-size: 70;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: end;
+  x: 100%-7;
+  y: 90%+3;
+  opacity: 1;
+  fill: fb-cyan;
+}
+
+#TZ-name {
+  font-size: 35;
+  font-family: System-Regular;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 0%;
+  opacity: 1;
+  fill: fb-peach;
+}
+
+.sc2ActivityIcon {
+  height: 48;
+  width: 48;
+  opacity: 1;
+}
+
+.sc3Activity {
+  font-size: 70;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: end;
+  x: 100%-7;
+  y: 80%+3;
+  opacity: 1;
+}
+
+.sc3Progress {
+  x: 0;
+  y: 0;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.tile-list-item {
+  height: 60;
+}
+
+.tile-list-item text {
+  font-family: System-Regular;
+  fill: "fb-peach";
+}
+
+.tile-divider-bottom {
+  x: 0;
+  y: 100%-2;
+  width: 100%;
+  height: 2;
+  fill: #A0A0A0;
+}
