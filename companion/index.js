@@ -91,26 +91,15 @@ messaging.peerSocket.onmessage = function(evt) {
         settingsStorage.setItem("Activity-slider", Actslider);
     }
     if (evt.data.key === "hoursColorVal"){
-        let hoursColour = evt.data.value;
+        let hoursColorVal = evt.data.value;
         settingsStorage.setItem("hoursColorVal", hoursColorVal);
     }
     if (evt.data.key === "TZhoursColorVal"){
-        let TZhoursColour = evt.data.value;
+        let TZhoursColorVal = evt.data.value;
         settingsStorage.setItem("TZhoursColorVal", TZhoursColorVal);
     }
 }
 
-//-------- Restore previously saved slider settings and send to the device -----------------
-//function restoreSettings() {
-//    let key = settingsStorage.key(0);
-//    if (key) {
-//        sendValue(key, settingsStorage.getItem(key));
-//    }
-//   let key = settingsStorage.key(5);
-//    if (key) {
-//        sendValue(key, settingsStorage.getItem(key));
-//    }
-//}
 
 //----------------- Send the data ----------------------------------
 function sendValue(key, val) {

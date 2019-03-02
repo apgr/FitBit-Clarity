@@ -11,20 +11,15 @@ import { goals } from "user-activity";
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
 
-// Setup timezone elements
-let secondTimeZone = document.getElementById("secondTimeZone");
-let DST = document.getElementById("DST");
-var dstOffset = document.getElementById("dstOffset");
-let TimeZone = document.getElementById("TimeZone");
-var offset = document.getElementById("offset");
-
-// Initialise settings -needed for upgrades which change teh number of settings - maybe??
+        console.log('Hello world');
+        import { memory } from "system";
+        console.log("JS memory: " + memory.js.used + "/" + memory.js.total);
 
 let settings = {};
 
 // Setup multiple screens and a click area
 var Click = document.getElementById("Click");
-var sc1 = document.getElementById("sc1");
+let sc1 = document.getElementById("sc1");
 var sc2 = document.getElementById("sc2");
 var sc3 = document.getElementById("sc3");
 var scTZ = document.getElementById("scTZ");
@@ -40,70 +35,66 @@ clock.granularity = "seconds"; // seconds, minutes, hours
 //------- Get a handle on the screen elements -------------------------
 
 // screen 1
-const sc1Hours = document.getElementById("sc1Hours");
-const sc1Mins = document.getElementById("sc1Mins");
-const sc1Secs = document.getElementById("sc1Secs");
-const sc1Label = document.getElementById("sc1Label");
-const sc1Date = document.getElementById("sc1Date");
-const sc1Steps = document.getElementById("sc1Steps");
-const sc1StepsIcon = document.getElementById("sc1StepsIcon");
-const TimePrefix = [" ", " ", "PM"];
-const shortDayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const MonthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const goalProgressBar = document.getElementById("goalProgressBar");
-const sc1grad = document.getElementById("sc1grad");
-const sc1btn = document.getElementById("sc1btn");
-const sc1press = document.getElementById("sc1press");
-const scSetpress = document.getElementById("scSetpress");
+let sc1Hours = sc1.getElementById("sc1Hours");
+let sc1Mins = sc1.getElementById("sc1Mins");
+let sc1Secs = sc1.getElementById("sc1Secs");
+let sc1Label = sc1.getElementById("sc1Label");
+let sc1Date = sc1.getElementById("sc1Date");
+let sc1Steps = sc1.getElementById("sc1Steps");
+let sc1StepsIcon = sc1.getElementById("sc1StepsIcon");
+let TimePrefix = [" ", " ", "PM"];
+let shortDayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let MonthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let goalProgressBar = sc1.getElementById("goalProgressBar");
+let sc1grad = sc1.getElementById("sc1grad");
+let sc1btn = sc1.getElementById("sc1btn");
 
-// screen 2
-const sc2Batt = document.getElementById("sc2Batt");
-const sc2Day = document.getElementById("sc2Day");
-const sc2Date = document.getElementById("sc2Date");
-const sc2name = document.getElementById("sc2name"); 
-const sc2Steps = document.getElementById("sc2Steps");
-const sc2StepsIcon = document.getElementById("sc2StepsIcon");
-const DayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const shortMonthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
+// screen 2********************************************************************************************
+let sc2Batt = sc2.getElementById("sc2Batt");
+let sc2Day = sc2.getElementById("sc2Day");
+let sc2Date = sc2.getElementById("sc2Date");
+let sc2name = sc2.getElementById("sc2name"); 
+let sc2Steps = sc2.getElementById("sc2Steps");
+let sc2StepsIcon = sc2.getElementById("sc2StepsIcon");
+let DayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let shortMonthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // screen 3 
 
-const sc3distance = document.getElementById("sc3distance");
-const sc3distanceIcon = document.getElementById("sc3distanceIcon");
-const sc3distanceGoalProgressBar = document.getElementById("sc3distanceGoalProgressBar");
-const sc3flights = document.getElementById("sc3flights");
-const sc3flightsIcon = document.getElementById("sc3flightsIcon");
-const sc3flightsGoalProgressBar = document.getElementById("sc3flightsGoalProgressBar");
-const sc3calories = document.getElementById("sc3calories");
-const sc3caloriesIcon = document.getElementById("sc3caloriesIcon");
-const sc3caloriesGoalProgressBar = document.getElementById("sc3caloriesGoalProgressBar");
-const sc3activeMinutes = document.getElementById("sc3activeMinutes");
-const sc3actminIcon = document.getElementById("sc3actminIcon");
-const sc3activeMinutesGoalProgressBar = document.getElementById("sc3activeMinutesGoalProgressBar");
-const sc3Progress = document.getElementById("sc3Progress");
-const sc3hr = document.getElementById("sc3hr");
+let sc3distance = sc3.getElementById("sc3distance");
+let sc3distanceIcon = sc3.getElementById("sc3distanceIcon");
+let sc3distanceGoalProgressBar = sc3.getElementById("sc3distanceGoalProgressBar");
+let sc3flights = sc3.getElementById("sc3flights");
+let sc3flightsIcon = sc3.getElementById("sc3flightsIcon");
+let sc3flightsGoalProgressBar = sc3.getElementById("sc3flightsGoalProgressBar");
+let sc3calories = sc3.getElementById("sc3calories");
+let sc3caloriesIcon = sc3.getElementById("sc3caloriesIcon");
+let sc3caloriesGoalProgressBar = sc3.getElementById("sc3caloriesGoalProgressBar");
+let sc3activeMinutes = sc3.getElementById("sc3activeMinutes");
+let sc3actminIcon = sc3.getElementById("sc3actminIcon");
+let sc3activeMinutesGoalProgressBar = sc3.getElementById("sc3activeMinutesGoalProgressBar");
+let sc3Progress = sc3.getElementById("sc3Progress");
+let sc3hr = sc3.getElementById("sc3hr");
 sc3hr.text = "--";
 
 // screen TZ
-const scTZHours = document.getElementById("scTZHours");
-const scTZMins = document.getElementById("scTZMins");
-const scTZSecs = document.getElementById("scTZSecs");
-const scTZLabel = document.getElementById("scTZLabel");
-const scTZSteps = document.getElementById("scTZSteps");
-const scTZStepsIcon = document.getElementById("scTZStepsIcon");
-const scTZProgressBar = document.getElementById("scTZProgressBar");
-const scTZgrad = document.getElementById("scTZgrad");
-const scTZbtn = document.getElementById("scTZbtn");
-const scTZpress = document.getElementById("scTZpress");
-const scTZname = document.getElementById("scTZname");
+let scTZHours = scTZ.getElementById("scTZHours");
+let scTZMins = scTZ.getElementById("scTZMins");
+let scTZSecs = scTZ.getElementById("scTZSecs");
+let scTZLabel = scTZ.getElementById("scTZLabel");
+let scTZSteps = scTZ.getElementById("scTZSteps");
+let scTZStepsIcon = scTZ.getElementById("scTZStepsIcon");
+let scTZProgressBar = scTZ.getElementById("scTZProgressBar");
+let scTZgrad = scTZ.getElementById("scTZgrad");
+let scTZbtn = scTZ.getElementById("scTZbtn");
+let scTZname = scTZ.getElementById("scTZname");
 
 // scteen TZ2
-const scTZ2offset = document.getElementById("scTZ2offset");
-const scTZ2name = document.getElementById("scTZ2name");
-const scTZ2DST = document.getElementById("scTZ2DST");
-const scTZ2Steps = document.getElementById("scTZ2Steps");
-const scTZ2StepsIcon = document.getElementById("scTZ2StepsIcon");
+let scTZ2offset = scTZ2.getElementById("scTZ2offset");
+let scTZ2name = scTZ2.getElementById("scTZ2name");
+let scTZ2DST = scTZ2.getElementById("scTZ2DST");
+let scTZ2Steps = scTZ2.getElementById("scTZ2Steps");
+let scTZ2StepsIcon = scTZ2.getElementById("scTZ2StepsIcon");
 
 
 //------------- Settings -----------------------------------------------------------------------------
@@ -116,13 +107,15 @@ let DSTon = setup2.getElementById("DST-on");
 let setTZ = setup2.getElementById("set-TZ");
 let list = setup3.getElementById("my-list");
 let items = list.getElementsByClassName("tile-list-item");
-const TZname = document.getElementById("TZ-name");
+let TZname = document.getElementById("TZ-name");
 let stickyOff = setup4.getElementById("Sticky-off");
 let stickyOn = setup4.getElementById("Sticky-on");
 
-
 // all screens
-const batteryLevel = document.getElementById("batteryLevel");
+let batteryLevel = document.getElementById("batteryLevel");
+let sc1press = document.getElementById("sc1press");
+let scTZpress = document.getElementById("scTZpress");
+let scSetpress = document.getElementById("scSetpress");
 
 //---------- Save/load data to/from file -------------------------------
 
@@ -170,9 +163,11 @@ var gradientColor2 = ['#FFCC33',
 
 //----------- Check to see if second timezone should be displayed at startup ------------------
 
+let currentScreen = 1;
 if (settings.homescreen==0 && settings.TZtoggle){
     sc1.style.display = "none";
     scTZ.style.display = "inline";
+    currentScreen = 0;
 //    console.log("Restoring Second Time Zone screen");
 }
 
@@ -180,188 +175,198 @@ if (settings.homescreen==0 && settings.TZtoggle){
 //------------ Update the <text> element every tick with the current time ---------------------
 clock.ontick = (evt) => {
   
-      //code to deal with the time  
-        let todayDate = evt.date;
-        let TZ2 = newTZ(settings.offset, settings.dstOffset);
-        let hours = todayDate.getHours();
-        let TZhours = TZ2.getHours();
-        let index = 0;
-        let TZindex = 0;
-        if (preferences.clockDisplay === "12h") {
-         // 12h format.
-             index = 1;
-             TZindex = 1;
-             if (hours >= 12) index = 2;
-             if (TZhours >= 12) TZindex = 2;
-             hours = hours % 12 || 12;
-             TZhours = TZhours % 12 || 12;
-        }
-        hours = util.monoDigits(hours);
-        TZhours = util.monoDigits(TZhours);
+//console.log("JS memory: " + memory.js.used + "/" + memory.js.total);
+//console.log('Current Screen: ' + currentScreen);
+    
+    let todayDate = evt.date;
+    //code to deal with the date
+    let day = todayDate.getDay();
+    let date = todayDate.getDate();
+    let month = todayDate.getMonth();
+  
+    //------- code visible on all screens to deal with the battery level ------
+    batteryLevel.width = Math.round(300 * battery.chargeLevel / 100);
+    batteryLevel.style.fill = chargeLevelToColor(battery.chargeLevel);
+  
+    switch(currentScreen){
+        case 0:
+        case 1://-------------------------------------------------------------------
+            //code to deal with the time  
 
-      //screen 1 text
-        //code to deal with the date
-        let day = todayDate.getDay();
-        let date = todayDate.getDate();
-        let month = todayDate.getMonth();
+            let TZ2 = newTZ(settings.offset, settings.dstOffset);
+            let hours = todayDate.getHours();
+            let TZhours = TZ2.getHours();
+            let index = 0;
+            let TZindex = 0;
+            if (preferences.clockDisplay === "12h") {
+             // 12h format.
+                 index = 1;
+                 TZindex = 1;
+                 if (hours >= 12) index = 2;
+                 if (TZhours >= 12) TZindex = 2;
+                 hours = hours % 12 || 12;
+                 TZhours = TZhours % 12 || 12;
+            }
+            hours = util.monoDigits(hours);
+            TZhours = util.monoDigits(TZhours);
 
-        sc1Date.text = shortDayName[day] + ', ' + MonthName[month] + ' ' + date;
-        sc1Hours.text = `${hours}`;
-        sc1Mins.text = util.monoDigits(todayDate.getMinutes());
-        sc1Secs.text = util.monoDigits(todayDate.getSeconds());
-        sc1Label.text = TimePrefix[index];
-        sc1Label.style.fill = settings.hoursColor;
-        sc1btn.style.fill = settings.TZhoursColor;
-        sc1press.style.fill = settings.TZhoursColor;
-        sc1grad.gradient.colors.c1 = settings.hoursColor;
-        sc1grad.gradient.colors.c2 = settings.hoursColor2;
+            //screen 1 text
 
-      //second Time Zone screen scTZ
-        scTZHours.text = `${TZhours}`;
-        scTZMins.text = util.monoDigits(TZ2.getMinutes());
-        scTZSecs.text = util.monoDigits(TZ2.getSeconds());
-        scTZLabel.text = TimePrefix[TZindex];
-        scTZLabel.style.fill = settings.TZhoursColor;
-        scTZbtn.style.fill = settings.hoursColor;
-        scTZpress.style.fill = settings.hoursColor;
-        scTZgrad.gradient.colors.c1 = settings.TZhoursColor;
-        scTZgrad.gradient.colors.c2 = settings.TZhoursColor2;
-        scTZname.text = settings.TimeZone;
-        let UTCstring = TZtext(settings.offset, settings.dstOffset);
+            sc1Date.text = shortDayName[day] + ', ' + MonthName[month] + ' ' + date;
+            sc1Hours.text = `${hours}`;
+            sc1Mins.text = util.monoDigits(todayDate.getMinutes());
+            sc1Secs.text = util.monoDigits(todayDate.getSeconds());
+            sc1Label.text = TimePrefix[index];
+            sc1Label.style.fill = settings.hoursColor;
+            sc1btn.style.fill = settings.TZhoursColor;
+            sc1press.style.fill = settings.TZhoursColor;
+            sc1grad.gradient.colors.c1 = settings.hoursColor;
+            sc1grad.gradient.colors.c2 = settings.hoursColor2;
 
+            //second Time Zone screen scTZ
+            scTZHours.text = `${TZhours}`;
+            scTZMins.text = util.monoDigits(TZ2.getMinutes());
+            scTZSecs.text = util.monoDigits(TZ2.getSeconds());
+            scTZLabel.text = TimePrefix[TZindex];
+            scTZLabel.style.fill = settings.TZhoursColor;
+            scTZbtn.style.fill = settings.hoursColor;
+            scTZpress.style.fill = settings.hoursColor;
+            scTZgrad.gradient.colors.c1 = settings.TZhoursColor;
+            scTZgrad.gradient.colors.c2 = settings.TZhoursColor2;
+            scTZname.text = settings.TimeZone;
 
-      //screen 2 date items
+        case 2://-------------------------------------------------------------------
+            //screen 2 date items
+            sc2Day.text = DayName[day];
+            sc2Date.text = shortMonthName[month] + ' ' + date;
+            sc2Batt.text = 'Battery ' + battery.chargeLevel + '%';
+        
+        case 3://-------------------------------------------------------------------
+            //------- code to deal with the activities ---------
+            //steps
+            let steps = today.adjusted.steps.toLocaleString();  
+            sc1Steps.text = util.monoDigits(steps);
+            sc2Steps.text = util.monoDigits(today.adjusted.steps.toLocaleString());
+            scTZSteps.text = sc2Steps.text;
+            scTZ2Steps.text = sc2Steps.text;
+            const stepsGoalPercent = Math.min(100, Math.round(today.adjusted.steps / goals.steps * 100));
+            goalProgressBar.width = Math.round(300 * stepsGoalPercent / 100);
+            scTZProgressBar.width = Math.round(300 * stepsGoalPercent / 100);
+            if (stepsGoalPercent >= 100) {
+                sc1StepsIcon.style.fill = 'greenyellow';
+                sc2StepsIcon.style.fill = 'greenyellow';
+                scTZStepsIcon.style.fill = 'greenyellow';
+                scTZ2StepsIcon.style.fill = 'greenyellow';
+            } else {
+                sc1StepsIcon.style.fill = 'fb-cyan';
+                sc2StepsIcon.style.fill = 'fb-cyan';
+                scTZStepsIcon.style.fill = 'fb-cyan';
+                scTZ2StepsIcon.style.fill = 'fb-cyan';   
+            }
 
-        sc2Day.text = DayName[day];
-        sc2Date.text = shortMonthName[month] + ' ' + date;
-        sc2Batt.text = 'Battery ' + battery.chargeLevel + '%';
+            //------ elevation gain, distance, calories, active mins
+            let flights = today.adjusted.elevationGain.toLocaleString();
+            sc3flights.text = util.monoDigits(flights);
+            const flightsGoalPercent = Math.min(100, Math.round(today.adjusted.elevationGain / goals.elevationGain * 100));
+            sc3flightsGoalProgressBar.width = Math.round(300 * flightsGoalPercent / 100);
+            if (flightsGoalPercent >= 100) {
+                sc3flightsIcon.style.fill = 'greenyellow';
+                sc3flightsGoalProgressBar.width = 0;
+            } else {
+                sc3flightsIcon.style.fill = 'steelblue';
+            }
 
-      //screen TZ2
+            let distance = today.adjusted.distance;
+            const distanceGoalPercent = Math.min(100, Math.round(today.adjusted.distance / goals.distance * 100));
+            sc3distanceGoalProgressBar.width = Math.round(300 * distanceGoalPercent / 100); 
+            if (distanceGoalPercent >= 100) {
+                sc3distanceIcon.style.fill = 'greenyellow';
+                sc3distanceGoalProgressBar.width = 0;
+              } else {
+                sc3distanceIcon.style.fill = 'fb-blue';    
+              }
+            if (units.distance === "us"){    
+                distance = distance * 0.00062137;
+                sc3distance.text = distance.toFixed(2);
+              } else {
+                sc3distance.text = distance.toLocaleString();
+              }
 
-        scTZ2offset.text = UTCstring;
-        switch(UTCstring.length){    
-            case 7:
-                scTZ2offset.style.fontSize = 80;
-                break;
-            case 9:
-                scTZ2offset.style.fontSize = 60;
-                break;
-            case 10:
-                scTZ2offset.style.fontSize = 57;
-                break
-            default:
-                scTZ2offset.style.fontSize = 80;
-        }
+            let calories = today.adjusted.calories.toLocaleString();
+            sc3calories.text = util.monoDigits(calories);
+            const caloriesGoalPercent = Math.min(100, Math.round(today.adjusted.calories / goals.calories * 100));
+            sc3caloriesGoalProgressBar.width = Math.round(300 * caloriesGoalPercent / 100);
+            if (caloriesGoalPercent >= 100) {
+                sc3caloriesIcon.style.fill = 'greenyellow';
+                sc3caloriesGoalProgressBar.width = 0;
+              } else {
+                sc3caloriesIcon.style.fill = 'fb-orange';
+              }
 
-        scTZ2name.text = settings.TimeZone;
-        switch(scTZ2name.text.length){    
-            case 10:
-                scTZ2name.style.fontSize = 60;
-                break;
-            case 11:
-            case 12:
-            case 13:
-                scTZ2name.style.fontSize = 50;
-                break;
-            case 14:
-            case 15:
-            case 16:        
-                scTZ2name.style.fontSize = 40;
-                break
-            case 17:
-            case 18:        
-                scTZ2name.style.fontSize = 37;
-                break        
-            default:
-                scTZ2name.style.fontSize = 60;
-        }
+            let activeMinutes = today.adjusted.activeMinutes.toLocaleString();
+            sc3activeMinutes.text = util.monoDigits(activeMinutes);
+            const activeMinutesGoalPercent = Math.min(100, Math.round(today.adjusted.activeMinutes / goals.activeMinutes * 100));
+            sc3activeMinutesGoalProgressBar.width = Math.round(300 * activeMinutesGoalPercent / 100); 
+            if (activeMinutesGoalPercent >= 100) {
+                sc3actminIcon.style.fill = 'greenyellow';
+                sc3activeMinutesGoalProgressBar.width = 0;
+              } else {
+                sc3actminIcon.style.fill = 'gold';
+              }
 
-        if(settings.DST){
-            scTZ2DST.text = 'Daylight Savings';
-        } else {
-            scTZ2DST.text = '';
-        }
+        case 4://-------------------------------------------------------------------
+          //screen TZ2
+            let UTCstring = TZtext(settings.offset, settings.dstOffset);
+            scTZ2offset.text = UTCstring;
+            switch(UTCstring.length){    
+                case 7:
+                    scTZ2offset.style.fontSize = 80;
+                    break;
+                case 9:
+                    scTZ2offset.style.fontSize = 60;
+                    break;
+                case 10:
+                    scTZ2offset.style.fontSize = 57;
+                    break
+                default:
+                    scTZ2offset.style.fontSize = 80;
+            }
 
-      //------------ Settings Screens -------------------------------------------
+            scTZ2name.text = settings.TimeZone;
+            switch(scTZ2name.text.length){    
+                case 10:
+                    scTZ2name.style.fontSize = 60;
+                    break;
+                case 11:
+                case 12:
+                case 13:
+                    scTZ2name.style.fontSize = 50;
+                    break;
+                case 14:
+                case 15:
+                case 16:        
+                    scTZ2name.style.fontSize = 40;
+                    break
+                case 17:
+                case 18:        
+                    scTZ2name.style.fontSize = 37;
+                    break        
+                default:
+                    scTZ2name.style.fontSize = 60;
+            }
 
+            if(settings.DST){
+                scTZ2DST.text = 'Daylight Savings';
+            } else {
+                scTZ2DST.text = '';
+            }
+        
+      case 5://-------------------------------------------------------------------
+        //------------ Settings Screens ------------------------------------------
         TZname.text = settings.TimeZone;
   
-      //------- code to deal with the battery level ------
-        batteryLevel.width = Math.round(300 * battery.chargeLevel / 100);
-        batteryLevel.style.fill = chargeLevelToColor(battery.chargeLevel);
-
-      //------- code to deal with the activities ---------
-        //steps
-        let steps = today.adjusted.steps.toLocaleString();
-        sc1Steps.text = util.monoDigits(steps);
-        sc2Steps.text = util.monoDigits(today.adjusted.steps.toLocaleString());
-        scTZSteps.text = sc2Steps.text;
-        scTZ2Steps.text = sc2Steps.text;
-        const stepsGoalPercent = Math.min(100, Math.round(today.adjusted.steps / goals.steps * 100));
-        goalProgressBar.width = Math.round(300 * stepsGoalPercent / 100);
-        scTZProgressBar.width = Math.round(300 * stepsGoalPercent / 100);
-        if (stepsGoalPercent >= 100) {
-            sc1StepsIcon.style.fill = 'greenyellow';
-            sc2StepsIcon.style.fill = 'greenyellow';
-            scTZStepsIcon.style.fill = 'greenyellow';
-            scTZ2StepsIcon.style.fill = 'greenyellow';
-        } else {
-            sc1StepsIcon.style.fill = 'fb-cyan';
-            sc2StepsIcon.style.fill = 'fb-cyan';
-            scTZStepsIcon.style.fill = 'fb-cyan';
-            scTZ2StepsIcon.style.fill = 'fb-cyan';   
-        }
-
-        //------ elevation gain, distance, calories, active mins
-        let flights = today.adjusted.elevationGain.toLocaleString();
-        sc3flights.text = util.monoDigits(flights);
-        const flightsGoalPercent = Math.min(100, Math.round(today.adjusted.elevationGain / goals.elevationGain * 100));
-        sc3flightsGoalProgressBar.width = Math.round(300 * flightsGoalPercent / 100);
-        if (flightsGoalPercent >= 100) {
-            sc3flightsIcon.style.fill = 'greenyellow';
-            sc3flightsGoalProgressBar.width = 0;
-        } else {
-            sc3flightsIcon.style.fill = 'steelblue';
-        }
-
-        let distance = today.adjusted.distance;
-        const distanceGoalPercent = Math.min(100, Math.round(today.adjusted.distance / goals.distance * 100));
-        sc3distanceGoalProgressBar.width = Math.round(300 * distanceGoalPercent / 100); 
-        if (distanceGoalPercent >= 100) {
-            sc3distanceIcon.style.fill = 'greenyellow';
-            sc3distanceGoalProgressBar.width = 0;
-          } else {
-            sc3distanceIcon.style.fill = 'fb-blue';    
-          }
-        if (units.distance === "us"){    
-            distance = distance * 0.00062137;
-            sc3distance.text = distance.toFixed(2);
-        //    console.log(distance);
-          } else {
-            sc3distance.text = distance.toLocaleString();
-          }
-
-        let calories = today.adjusted.calories.toLocaleString();
-        sc3calories.text = util.monoDigits(calories);
-        const caloriesGoalPercent = Math.min(100, Math.round(today.adjusted.calories / goals.calories * 100));
-        sc3caloriesGoalProgressBar.width = Math.round(300 * caloriesGoalPercent / 100);
-        if (caloriesGoalPercent >= 100) {
-            sc3caloriesIcon.style.fill = 'greenyellow';
-            sc3caloriesGoalProgressBar.width = 0;
-          } else {
-            sc3caloriesIcon.style.fill = 'fb-orange';
-          }
-
-        let activeMinutes = today.adjusted.activeMinutes.toLocaleString();
-        sc3activeMinutes.text = util.monoDigits(activeMinutes);
-        const activeMinutesGoalPercent = Math.min(100, Math.round(today.adjusted.activeMinutes / goals.activeMinutes * 100));
-        sc3activeMinutesGoalProgressBar.width = Math.round(300 * activeMinutesGoalPercent / 100); 
-        if (activeMinutesGoalPercent >= 100) {
-            sc3actminIcon.style.fill = 'greenyellow';
-            sc3activeMinutesGoalProgressBar.width = 0;
-          } else {
-            sc3actminIcon.style.fill = 'gold';
-          }
+    } //-----------------------end switch section---------------------------------
+  
 } //------------ close clock tick loop --------------------
 
 
@@ -370,7 +375,6 @@ var hrMon = new HeartRateSensor();
 // Declare an event handler that will be called every time a new HR value is received.
 hrMon.onreading = function() {
   // Peek the current sensor values
-  // console.log("Current heart rate: " + hrMon.heartRate);
     sc3hr.text = util.monoDigits(hrMon.heartRate);
 }
 // Begin monitoring the sensor
@@ -379,7 +383,6 @@ hrMon.start();
 
 //------- on click make screen 2 visible for 20 seconds, on second click go to screen three, on third click return to screen 1 -----
 let screenOnNextClick = 2;
-let currentScreen = 1;
 let settingsScreen = false;
 let doubleclick = 0;
 let timer;
@@ -571,7 +574,6 @@ stickyOn.onclick = function(evt){
     }, 500);
 }
 
-
 //--- get time zone details from setup list
 
 items.forEach((element, index) => {
@@ -589,11 +591,9 @@ items.forEach((element, index) => {
 });
 
 
-
-//------------ function to return to homescreen after 20 seconds ---------
+//------------ function to return to homescreen ---------
 function home() {
     settingsScreen = false;
-//  console.log("Timeout over...");
     if(settings.TZtoggle){
         if(settings.homescreen == 1){
             display(sc1);
@@ -611,6 +611,8 @@ function home() {
         settings.homescreen=1;
     }     
 }
+
+
 //------------- Companion is alive ---------------------------------------------------------
 messaging.peerSocket.onopen = () => {
     console.log("Companion is awake.....");
@@ -620,6 +622,8 @@ messaging.peerSocket.onopen = () => {
     sendValue("secondTimeZone", settings.secondTimeZone);
     sendValue("Activity-slider", settings.Actopacity*100);
     sendValue("slider", settings.TZopacity*100);
+    sendValue("hoursColorVal", settings.hoursColorVal);
+    sendValue("TZhoursColorVal", settings.TZhoursColorVal);
 };
 
 
@@ -684,9 +688,7 @@ messaging.peerSocket.onmessage = function(evt) {
         settings.TZhoursColor = gradientColor1[settings.TZhoursColorVal];
         settings.TZhoursColor2 = gradientColor2[settings.TZhoursColorVal];
         saveSettings();
-    }
-  
-  
+    } 
 }
 
 
@@ -785,7 +787,6 @@ function TZtext(offset, dstOffset){
 }
 
 
-//  scTZoffset.text = sign + totalOffset;
 //------------ Function that get the color for the battery level label based on the current charge level --------
 function chargeLevelToColor(value) {
     const percent = Math.round(value);
@@ -815,5 +816,3 @@ function display(screen) {
     setup4.style.display = "none";
     screen.style.display = "inline";
 }
-
-
