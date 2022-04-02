@@ -1,0 +1,344 @@
+<svg class="background">
+  
+<!-- Screen 1 -->   
+ <svg id="sc1" display="inline">
+    <mask id="mask">
+       <g transform="scale(1,1.1,1)">
+         <text id="sc1Hours" />
+         <text id="sc1Mins" />
+
+       </g>  
+    </mask>
+    <svg mask="#mask" width="100%" height="100%">
+       <gradientRect id="sc1grad" width="60%+10" height="100%" 
+        gradient-type="linear"
+        gradient-x1="25%" gradient-y1="25%"
+        gradient-x2="100%" gradient-y2="100%"
+        gradient-color1="gold"
+        gradient-color2="fb-peach"/>
+      
+      <gradientRect width="40%" height="50%" x="60%+10"
+        gradient-type="linear"
+        gradient-x1="25%" gradient-y1="25%"
+        gradient-x2="100%" gradient-y2="100%"
+        gradient-color1="fb-light-gray"
+        gradient-color2="fb-white"/> 
+    </svg>  
+<!--  <line x1="10" y1="23%" x2="100%-10" y2="23%" fill="red" stroke-width="1" />  
+  <line x1="10" y1="69%" x2="100%-10" y2="69%" fill="red" stroke-width="1" /> -->
+    <g transform="scale(1,1.1,1)"> 
+       <text id="sc1Label" />
+       <text id="sc1Secs" />
+    </g>
+    <text id="sc1act" />  
+    <text id="sc1Date" />
+    <image id="sc1actIcon" x="10%" y="80%" class="sc1activityIcon" />
+    <use id="sc1HRIcon" x="10%" y="80%" href="#heart-beat" class="sc1activityIcon" display="none"/>
+    <arc id="sc1btn" x="-20" y="250" width="130" height="130" arc-width="2" start-angle="0" sweep-angle="360" />
+  </svg>
+   
+<!-- Items to display all the time -->
+  <circle id="sc1press" cx="45" cy="315" r="65" display="none"/> 
+  <circle id="scTZpress" cx="45" cy="315" r="65" display="none" />
+  
+<!-- Screen TZ -->   
+ <svg id="scTZ" display="none">
+    <mask id="mask">
+       <g transform="scale(1,1.1,1)">
+         <text id="scTZHours" />
+         <text id="scTZMins" />
+       </g>  
+    </mask>
+    <svg mask="#mask" width="100%" height="100%">
+       <gradientRect id="scTZgrad" width="60%+10" height="100%" 
+        gradient-type="linear"
+        gradient-x1="25%" gradient-y1="25%"
+        gradient-x2="100%" gradient-y2="100%"
+        gradient-color1="fb-magenta"
+        gradient-color2="deeppink"/>
+
+      <gradientRect width="40%" height="100%" x="60%+10"
+        gradient-type="linear"
+        gradient-x1="25%" gradient-y1="25%"
+        gradient-x2="100%" gradient-y2="50%"
+        gradient-color1="fb-light-gray"
+        gradient-color2="fb-white"/>
+
+    </svg>
+    <g transform="scale(1,1.1,1)"> 
+       <text id="scTZLabel" />
+       <text id="scTZSecs" />
+    </g>
+    <text id="scTZname" />
+    <text id="scTZact" />  
+    <image id="scTZactIcon" x="10%" y="80%" class="sc1activityIcon" />
+    <use id="scTZHRIcon" x="10%" y="80%" href="#heart-beat" class="sc1activityIcon" display="none"/>
+    <arc id="scTZbtn" x="-20" y="250" width="130" height="130" arc-width="2" start-angle="0" sweep-angle="360" />
+
+ </svg>  
+
+<!-- Screen 2 -->   
+ <svg id="sc2" display="none"> 
+    <text id="sc2Batt" />
+    <text id="sc2Day" />
+    <text id="sc2Date" />
+    <text id="sc2act" />
+    <image id="sc2actIcon" x="10%" y="76%" class="sc2activityIcon" />
+    <rect id="sc2progressBar" x="0" y="73%" height="70" />
+ </svg> 
+
+<!-- Screen TZ2 -->
+ <svg id="scTZ2" display="none"> 
+    <text id="scTZ2name" />
+    <text id="scTZ2offset" />
+    <text id="scTZ2DST" />
+    <text id="scTZ2act" />
+    <image id="scTZ2actIcon" x="10%" y="76%" class="sc2activityIcon" />
+    <rect id="scTZ2progressBar" x="0" y="73%" height="70" />
+
+ </svg> 
+
+<!-- Screen 3 -->   
+ <svg id="sc3" x="6%" y="6%" width="88%" height="88%" display="none"> 
+    <svg x="0%" y="2" width="100%" height="20%" fill="black">
+          <text id="sc3act1" class="sc3activity" />
+          <image id="sc3act1Icon" x="8" y="5" class="sc2activityIcon" />
+          <rect id="sc3act1ProgressBar" class="sc3progress"/>
+    </svg>
+   
+    <svg x="0%" y="20%" width="100%" height="20%" fill="black">
+          <text id="sc3act2" class="sc3activity" />
+          <image id="sc3act2Icon" x="8" y="5" class="sc2activityIcon" />
+          <rect id="sc3act2ProgressBar" class="sc3progress" />
+    </svg>
+   
+    <svg x="0%" y="40%" width="100%" height="20%" fill="black">
+          <text id="sc3act3" class="sc3activity" />
+          <image id="sc3act3Icon" x="8" y="5" class="sc2activityIcon" />
+          <rect id="sc3act3ProgressBar" class="sc3progress" />
+    </svg>
+  
+    <svg x="0%" y="60%" width="100%" height="20%" fill="black">
+          <text id="sc3act4" class="sc3activity" />
+          <image id="sc3act4Icon" x="8" y="5" class="sc2activityIcon" />
+          <rect id="sc3act4ProgressBar" class="sc3progress" />      
+    </svg>
+   
+    <svg x="0%" y="80%" width="100%" height="20%" fill="black">
+          <text id="sc3act5" class="sc3activity" fill="fb-magenta"/>
+          <image id="sc3act5Icon" x="8" y="5" class="sc2activityIcon" />
+          <rect id="sc3act5ProgressBar" class="sc3progress" display="none"/>
+          <use id="sc3HRIcon" x="8" y="5" href="#heart-beat" class="sc2activityIcon" display="none"/>
+    </svg>
+ </svg>
+
+  
+<!-- Setup click area with  opacity = 0 --> 
+    <rect id="Click" width="100%" height="100%" fill="black" opacity="0" pointer-events="visible"/> 
+  
+  
+<!-- Setup Screen 1 -->   
+    <svg id="setup" display="none">
+        <!-- Black background -->
+        <rect class="full-size" fill="fb-black" />
+        <use href="#app-gradient-background" class="app-gradient-background application-fill" apply-style="at-use">
+        </use>
+            <svg>
+                <text x="50%" y="37%" font-family="System-Regular" fill="fb-magenta" font-size="28" 
+                      text-anchor="middle">Heart Rate on Home Screen</text>             
+                 <!-- toggle button OFF -->
+                <use id="HRH-off" href="#text-button" class="text-button top left HRHsecondary">
+                    <set href="#text"  attributeName="text-buffer" to="Off" />
+                </use>
+                <!-- toggle button ON -->
+                <use id="HRH-on" href="#text-button" class="text-button top right HRHprimary">
+                    <set href="#text"  attributeName="text-buffer" to="On" />
+                </use>              
+              
+                <text x="50%" y="70%" font-family="System-Regular" fill="greenyellow" font-size="35" 
+                      text-anchor="middle">Show 2nd Time Zone</text>
+                <!-- toggle button OFF -->
+                <use id="TZ-off" href="#text-button" fill="greenyellow" class="text-button bottom left secondary">
+                    <set href="#text"  attributeName="text-buffer" to="Off" />
+                </use>
+                <!-- toggle button ON -->
+                <use id="TZ-on" href="#text-button" fill="greenyellow" class="text-button bottom right">
+                    <set href="#text"  attributeName="text-buffer" to="On" />
+                </use>   
+            </svg>       
+    </svg> 
+    <circle id="scSetpress" cx="281" cy="6" r="65" fill="fb-light-gray" display="none" />
+   
+<!-- Setup Screen 2 -->  
+    <svg id="setup2" display="none">
+        <!-- Black background -->
+        <rect class="full-size" fill="fb-black" />
+        <use href="#app-gradient-background" class="app-gradient-background application-fill" apply-style="at-use">
+        </use>
+        <svg>
+            <!-- toggle button OFF -->
+            <use id="DST-off" href="#text-button" class="text-button top left">
+                <set href="#text"  attributeName="text-buffer" to="DST Off" />
+            </use>
+            <!-- toggle button ON -->
+            <use id="DST-on" href="#text-button" class="text-button top right">
+                <set href="#text"  attributeName="text-buffer" to="DST On" />
+            </use>
+            <!-- toggle button OFF -->
+            <use id="More" href="#text-button" fill="greenyellow" class="text-button bottom left secondary">
+                <set href="#text"  attributeName="text-buffer" to="More" />
+            </use>
+            <!-- toggle button ON -->
+            <use id="Done" href="#text-button" fill="greenyellow" class="text-button bottom right">
+                <set href="#text"  attributeName="text-buffer" to="Done" />
+            </use>
+            <text id="TZ-name" y="50%" font-family="System-Bold" fill="fb-peach" font-size="40" text-anchor="middle"/>
+            <text id="scS2offset" y="50%+30" font-family="System-Bold" fill="fb-peach" font-size="30" text-anchor="middle"/>
+        </svg>
+    </svg>
+
+<!-- Setup Screen3 -->
+    <svg id="setup3" display="none"> 
+    <!-- Black background -->
+    <rect class="full-size" fill="fb-black" />
+       <symbol id="my-item" href="#tile-list-item" class="list-item">
+          <rect class="bg" />
+          <text id="text" />
+          <rect class="line" />
+          <rect id="touch" pointer-events="all" />
+        </symbol> 
+        <use id="mylist" href="#tile-list" class="horizaontal-pad">
+            <var id="separator-height-bottom" value="6" />
+            <var id="peek-enabled" value="1" />
+          
+            <use id="item1" href="#my-item" >
+                <set href="#text" attributeName="text-buffer" to="-11 Samoa" />
+            </use>
+            <use id="item2" href="#my-item" >
+                <set href="#text" attributeName="text-buffer" to="-10 Hawaii" />
+            </use>
+            <use id="item3" href="#my-item">
+                <set href="#text" attributeName="text-buffer" to="-9.5 Marquesas Islands" />
+            </use>
+            <use id="item4" href="#my-item" >
+                <set href="#text" attributeName="text-buffer" to="-9 Alaska" />
+            </use>        
+            <use id="item5" href="#my-item" >
+                <set href="#text" attributeName="text-buffer" to="-8 Pacific" />
+            </use>
+            <use id="item6" href="#my-item" >
+                <set href="#text" attributeName="text-buffer" to="-7 Mountain" />
+            </use>
+            <use id="item7" href="#my-item" >
+                <set href="#text" attributeName="text-buffer" to="-6 Central" />
+            </use>
+            <use id="item8" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="-5 Eastern" />
+            </use>
+            <use id="item9" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="-4 Santiago" />
+            </use>
+            <use id="item10" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="-3.5 Newfoundland" />
+            </use>
+            <use id="item11" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="-3 Buenos Aires" />
+            </use>
+            <use id="item12" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="-2 Mid-Atlantic" />
+            </use>
+            <use id="item13" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="-1 Azores" />
+            </use>
+            <use id="item14" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="0 GMT" />
+            </use>        
+            <use id="item15" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+1 Central European" />
+            </use>
+            <use id="item16" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+2 Eastern European" />
+            </use>
+            <use id="item17" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+3 Moscow" />
+            </use>
+            <use id="item18" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+3.5 Iran" />
+            </use>
+            <use id="item19" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+4 Seychelles" />
+            </use>
+            <use id="item20" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+4.5 Afghanistan" />
+            </use>
+            <use id="item21" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+5 Pakistan" />
+            </use>
+            <use id="item22" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+5.5 India" />
+            </use>
+            <use id="item23" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+5.75 Nepal" />
+            </use>
+            <use id="item24" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+6 Bangladesh" />
+            </use>        
+            <use id="item25" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+6.5 Cocos Islands" />
+            </use>
+            <use id="item26" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+7 Thailand" />
+            </use>
+            <use id="item27" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+8 China" />
+            </use>
+            <use id="item28" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+9 Japan" />
+            </use>
+            <use id="item29" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+9.5 Australian Central" />
+            </use>
+            <use id="item30" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+10 Australian Eastern" />
+            </use>
+            <use id="item31" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+11 Solomon Islands" />
+            </use>
+            <use id="item32" href="#my-item" >
+                <set href="text" attributeName="text-buffer" to="+12 New Zealand" />
+            </use>
+          </use>
+    </svg>
+
+  
+  <!-- Setup Screen 4 --> 
+    <svg id="setup4" display="none"> 
+        <!-- Black background -->
+        <rect class="full-size" fill="fb-black" />
+        <use href="#app-gradient-background" class="app-gradient-background application-fill" apply-style="at-use">
+        </use>
+        <svg> 
+          <text id="scS4TZ-name" y="37%" text-anchor="middle"/>  
+          <use id="set-TZ" href="#text-button" fill="fb-peach" class="text-button top">
+                <set href="#text" attributeName="text-buffer" to="Set Time Zone" />
+            </use>
+            <text x="50%" y="69%" font-family="System-Regular" fill="fb-cyan" font-size="35" text-anchor="middle">Sticky Time Zone</text>
+            <!-- toggle button OFF -->
+            <use id="Sticky-off" href="#text-button" class="text-button bottom left">
+                <set href="#text"  attributeName="text-buffer" to="Off" />
+            </use>
+            <!-- toggle button ON -->
+            <use id="Sticky-on" href="#text-button" class="text-button bottom right">
+                <set href="#text"  attributeName="text-buffer" to="On" />
+            </use>
+        </svg>       
+    </svg> 
+  
+</svg>
+
+
+  <!-- 
+  <line x1="60%+10" y1="10" x2="60%+10" y2="100%-10" fill="red" stroke-width="2" />
+  <line x1="10" y1="53" x2="100%-10" y2="53" fill="red" stroke-width="2" />  
+  <line x1="10" y1="80%+3" x2="100%-10" y2="80%+3" fill="red" stroke-width="2" />
+  -->

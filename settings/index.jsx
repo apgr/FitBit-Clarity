@@ -76,9 +76,7 @@ function mySettings(props) {
       <Text italic>
           When on, the selected time zone will remain visible.  Otherwise the clock will revert to local time after 20 seconds. 
       </Text>
-      </Section> 
-      
-      <Section>
+
         <Slider
           label="Time Zone button opacity %"
           settingsKey="slider"
@@ -93,6 +91,15 @@ function mySettings(props) {
       </Section> 
 
       <Section title={<Text bold align="center">General Settings</Text>}>
+        
+        <Toggle
+          settingsKey="homeScreenHR"
+          label="Show Heart Rate on Home Screen"
+        />
+      </Section>
+            
+      <Section>
+
         <Text> Home hours colour </Text>
         <ColorSelect
           centered={true}
@@ -150,7 +157,7 @@ function mySettings(props) {
       </Section>
       
       <Section>
-        <Text>CLARITY v3 by Ade Russell </Text>
+        <Text>CLARITY by Ade Russell </Text>
 
         <Text>This clock face is free.  If you like it and use it, please consider buying me a coffee by 
               making a donation to aderussell@me.com via PayPal. </Text>

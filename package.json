@@ -1,24 +1,27 @@
 {
+  "devDependencies": {
+    "@fitbit/sdk": "~5.0.0"
+  },
   "fitbit": {
     "appUUID": "168b78d3-668e-4d24-8251-8b34c7098ca4",
     "appType": "clockface",
-    "appDisplayName": "Clarity",
+    "appDisplayName": "Clarity 4",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
       "access_activity",
-      "access_heart_rate"
+      "access_heart_rate",
+      "access_user_profile"
     ],
     "buildTargets": [
-      "meson"
+      "atlas",
+      "vulcan"
     ],
     "i18n": {
-      "en": {
-        "name": "Clarity"
+      "en-US": {
+        "name": "Clarity 4"
       }
-    }
-  },
-  "devDependencies": {
-    "@fitbit/sdk": "~3.0.0"
+    },
+    "defaultLanguage": "en-US"
   }
 }

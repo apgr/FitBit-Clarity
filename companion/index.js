@@ -70,8 +70,12 @@ messaging.peerSocket.onmessage = function(evt) {
     }
     if (evt.data.key === "DST"){
         let DST = evt.data.value;
-        settingsStorage.setItem("DST", DST);
+        settingsStorage.setItem("DST", DST);   
     }
+    if (evt.data.key === "homeScreenHR"){
+        let homeScreenHR = evt.data.value;
+        settingsStorage.setItem("homeScreenHR", homeScreenHR);
+    }   
     if (evt.data.key === "TimeZone"){
         let index = evt.data.value;
 //        console.log("TimeZone " + JSON.stringify(TimeZone[index]));
